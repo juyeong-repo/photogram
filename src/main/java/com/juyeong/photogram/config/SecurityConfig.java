@@ -11,6 +11,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //super 삭제하면 기존 시큐리티가 가지고 있던 기능이 삭제됨
+
+        http.csrf().disable();
+
         //인증안된 사람들은 로그인 페이지로 보내
         http.authorizeRequests()
                 .antMatchers("/","/users/**", "/image/**", "/subscribe/**", "/comment/**").authenticated()
