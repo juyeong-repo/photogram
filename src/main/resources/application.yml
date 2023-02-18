@@ -5,7 +5,9 @@ server:
     encoding:
       charset: utf-8
       enabled: true
-    
+
+
+
 spring:
   mvc:
     view:
@@ -35,9 +37,14 @@ spring:
     user:
       name: test
       password: 1234
+
   devtools:
     livereload:
       enabled: true
+  freemarker:
+    cache: false
+
+
 
 file:
   path: C:/workspace/springbootwork/upload/
