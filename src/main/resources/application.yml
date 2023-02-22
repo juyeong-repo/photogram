@@ -7,7 +7,6 @@ server:
       enabled: true
 
 
-
 spring:
   mvc:
     view:

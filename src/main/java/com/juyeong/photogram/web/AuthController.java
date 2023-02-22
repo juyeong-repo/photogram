@@ -25,6 +25,7 @@ public class AuthController {
         return "auth/signin";
     }
 
+
     // 회원가입 완료하면 로그인 화면으로 가세요
     @PostMapping("/auth/signup")
     public String signup (SignupReqDto signupReqDto) {

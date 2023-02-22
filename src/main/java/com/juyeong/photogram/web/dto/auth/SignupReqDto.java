@@ -11,5 +11,4 @@ public class SignupReqDto {
 
     //role(필수), gender(선택) 등 추가정보는 추후 추가
 
-
 }
