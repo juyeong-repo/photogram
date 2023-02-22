@@ -38,6 +38,7 @@ spring:
       name: test
       password: 1234
 
+
   devtools:
     livereload:
       enabled: true
