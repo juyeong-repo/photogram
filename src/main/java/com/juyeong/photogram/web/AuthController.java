@@ -32,8 +32,6 @@ public class AuthController {
         return "auth/signin";
     }
 
-    //서버 리로드 안되잔아 ,,,,,
-
 }
 
 
