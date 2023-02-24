@@ -18,8 +18,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //AI, sequence
     private int id;
-    @Column(unique = true)
+    @Column(length = 20 , unique = true)
     private String username;
+    @Column(nullable = false)
     private String password;
     private String name;
     private String website;
