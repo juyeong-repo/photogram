@@ -23,8 +23,8 @@
                    <div class="login__form">
                         <h1><img src="/images/logo.jpg" alt=""></h1>
                         
-                        <!--로그인 인풋-->
-                        <form class="login__input" >
+                        <!--로그인 인풋 (조회니까 get으로 하는게 맞지만, 주소창에 회원정보가 남기 때문에 로그인만 예외적으로 Post 사용-->
+                        <form class="login__input" action="/auth/signin" method="POST">
                             <input type="text" name="username" placeholder="유저네임" required="required" />
                             <input type="password" name="password" placeholder="비밀번호" required="required" />
                             <button>로그인</button>
