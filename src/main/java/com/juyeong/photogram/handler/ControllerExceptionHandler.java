@@ -13,9 +13,9 @@ import java.util.Map;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(CustomValidationException.class)
-    public CMRespDto validationException(CustomValidationException e) {
+    public CMRespDto<Map<String, String>> validationException(CustomValidationException e) {
 
-        return new CMRespDto(e.getMessage(), e.getErrMap());
+        return new CMRespDto(-1, e.getMessage(), e.getErrMap());
     }
 
 }
