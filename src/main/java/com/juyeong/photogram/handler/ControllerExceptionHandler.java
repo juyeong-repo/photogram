@@ -13,9 +13,9 @@ import java.util.Map;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(CustomValidationException.class)
-    public CMRespDto<Map<String, String>> validationException(CustomValidationException e) {
-
-        return new CMRespDto(-1, e.getMessage(), e.getErrMap());
+    public CMRespDto<?> validationException(CustomValidationException e) {
+            //리턴타입에 제네릭 추론을 사용하여 <?> 라고만 적어도 ok
+        return new CMRespDto<Map<String, String>>(-1, e.getMessage(), e.getErrMap());
     }
 
 }

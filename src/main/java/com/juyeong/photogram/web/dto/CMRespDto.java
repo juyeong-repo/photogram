@@ -14,5 +14,5 @@ public class CMRespDto <T>{
 
     private int code; //1 성공, -1 실패
     private String message;
-    private T data;
+    private T data; //User object, String등 다양한 타입을 받을 수 있음
 }
