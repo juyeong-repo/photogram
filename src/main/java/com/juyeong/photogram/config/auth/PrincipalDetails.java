@@ -26,20 +26,17 @@ public class PrincipalDetails implements UserDetails {
         //collector에 권한 (람다)
         collector.add (() -> { return user.getRole();}
         );
-
-
-
         return collector;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return user.getUsername();
     }
 
     @Override
