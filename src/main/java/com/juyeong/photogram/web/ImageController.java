@@ -10,4 +10,17 @@ public class ImageController {
     public String story() {
         return "image/story";
     }
+
+    //인기게시물
+    @GetMapping("image/popular")
+    public String popular() {
+        return "image/popular";
+    }
+
+    @GetMapping( "/image/upload")
+    public String upload() {
+        return "image/upload";
+    }
+
+
 }
