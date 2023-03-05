@@ -21,7 +21,7 @@ public class UserController {
     public String update(@PathVariable int id, @AuthenticationPrincipal PrincipalDetails principalDetails) {
         System.out.println("session info using annotation:::::::" + principalDetails.getUser());
 
-        //직접 세션정보 찾아들어가서 꺼내오기 (추후 주석)
+        //직접 세션정보 찾아들어가서 꺼내오기
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         PrincipalDetails mPrincipalDetails =  (PrincipalDetails) auth.getPrincipal();
         System.out.println("session info from Security Context Holder ::::::::::" + mPrincipalDetails.getUser());
