@@ -33,7 +33,7 @@ public class User {
     private String role;
     private LocalDateTime createDate;
 
-    @PrePersist //ㅇ
+    @PrePersist 
     public void createDate () {
         this.createDate = LocalDateTime.now();
     }
