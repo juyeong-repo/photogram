@@ -1,9 +1,12 @@
 package com.juyeong.photogram.service;
 
 
+import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import com.juyeong.photogram.domain.user.User;
 import com.juyeong.photogram.domain.user.UserRepositoty;
+import com.juyeong.photogram.handler.ex.CustomValidationApiException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     //DI
+
+    @Autowired
     private final UserRepositoty userRepositoty;
+    @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
@@ -22,7 +28,7 @@ public class UserService {
 
         //1.영속화
         // get() 무조건 찾음, orElseThrow() 못찾았으니 익셉션
-        User userEntity = userRepositoty.findById(id).get();
+        User userEntity = userRepositoty.findById(id).orElseThrow(() -> { return new CustomValidationApiException("찾을 수 없는 id입니다.");});
         System.out.println("===================check================="+userEntity.toString());
 
 

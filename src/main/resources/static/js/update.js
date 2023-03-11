@@ -7,7 +7,7 @@ function update(userId, event) {
     console.log(data);
 
     $.ajax({
-        type: "put",
+        type: "PUT",
         url : `/api/user/${userId}`,
         data: data,
         contentType: "application/x-www-form-urlencoded; charset=utf-8",

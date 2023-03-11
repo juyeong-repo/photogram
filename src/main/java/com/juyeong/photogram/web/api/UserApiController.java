@@ -8,6 +8,7 @@ import com.juyeong.photogram.service.UserService;
 import com.juyeong.photogram.web.dto.CMRespDto;
 import com.juyeong.photogram.web.dto.user.UserUpdateDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ import java.util.Map;
 @RestController
 public class UserApiController {
 
+    @Autowired
     private final UserService userService;
 
     @PutMapping("/api/user/{id}")
