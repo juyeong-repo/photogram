@@ -1,7 +1,6 @@
 package com.juyeong.photogram.service;
 
 
-import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import com.juyeong.photogram.domain.user.User;
 import com.juyeong.photogram.domain.user.UserRepositoty;
 import com.juyeong.photogram.handler.ex.CustomValidationApiException;

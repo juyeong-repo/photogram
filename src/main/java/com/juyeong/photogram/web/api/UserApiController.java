@@ -3,10 +3,10 @@ package com.juyeong.photogram.web.api;
 import com.juyeong.photogram.config.auth.PrincipalDetails;
 import com.juyeong.photogram.domain.user.User;
 import com.juyeong.photogram.handler.ex.CustomValidationApiException;
-import com.juyeong.photogram.handler.ex.CustomValidationException;
 import com.juyeong.photogram.service.UserService;
 import com.juyeong.photogram.web.dto.CMRespDto;
 import com.juyeong.photogram.web.dto.user.UserUpdateDto;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -25,7 +25,6 @@ import java.util.Map;
 @RestController
 public class UserApiController {
 
-    @Autowired
     private final UserService userService;
 
     @PutMapping("/api/user/{id}")

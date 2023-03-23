@@ -31,6 +31,7 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(CustomValidationApiException.class)
     public ResponseEntity<CMRespDto<?>> validationApiException(CustomValidationApiException e) {
+        System.out.println("================================ 실행확인");
         return new ResponseEntity<>(new CMRespDto<>(-1, e.getMessage(), e.getErrMap()), HttpStatus.BAD_REQUEST) ;
     }
 

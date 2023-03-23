@@ -1,9 +1,11 @@
 package com.juyeong.photogram.web.dto.user;
 
 import com.juyeong.photogram.domain.user.User;
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
+@Data
 public class UserUpdateDto {
 
     @NotBlank
