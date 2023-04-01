@@ -15,7 +15,7 @@ function update(userId, event) {
     }).done(res=>{
         console.log("성공", res);
         location.href = `/user/${userId}`;
-    }).fail(error=>{
+    }).fail(error=>{ //상태코드 200번대가 아닐 때
         if(error.data == null){
             alert(error.responseJSON.message);
         }else{

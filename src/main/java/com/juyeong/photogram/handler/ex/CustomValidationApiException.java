@@ -19,7 +19,6 @@ public class CustomValidationApiException extends RuntimeException{
         this.errorMap = errorMap;
     }
 
-
     //getter 만들자
     public Map<String, String> getErrMap () {
         return errorMap;

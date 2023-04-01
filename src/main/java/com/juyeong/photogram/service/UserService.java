@@ -26,10 +26,10 @@ public class UserService {
     public User updateUserInfo (int id, User user) {
 
         //1.영속화
-        // get() 무조건 찾음, orElseThrow() 못찾았으니 익셉션
-        User userEntity = userRepositoty.findById(id).orElseThrow(() -> { return new CustomValidationApiException("찾을 수 없는 id입니다.");});
-        System.out.println("===================check================="+userEntity.toString());
+        // get() 무조건 찾음, orElseThrow() 못찾았으니 익셉션 (get() -> orELseThrow로 수정)
 
+       User userEntity = userRepositoty.findById(id).orElseThrow(() -> { return new CustomValidationApiException("찾을 수 없는 id입니다.");});
+       System.out.println("===================check================="+userEntity.toString());
 
 
         // 2.더티체킹
