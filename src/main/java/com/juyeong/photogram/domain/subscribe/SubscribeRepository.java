@@ -11,11 +11,11 @@ public interface SubscribeRepository extends JpaRepository<Subscribe, Integer> {
 
     @Modifying
     @Query(value = "INSERT INTO subscribe(fromUserId, toUserId, createDate) VALUES(:fromUserId, :toUserId, now())", nativeQuery = true)
-    int mSubscribe (int fromUserId, int toUserId); //PreparedStatement와 같다 -> 변경된 행의 개수 리턴, 실패시 -1
+    void mSubscribe (int fromUserId, int toUserId); //PreparedStatement와 같다 -> 변경된 행의 개수 리턴, 실패시 -1
 
     @Modifying
     @Query(value = "DELETE FROM subscribe WHERE fromUserId = :fromUserId AND toUserId = :toUserId", nativeQuery = true)
-    int mUnSubscribe(int fromUserId, int toUserId);
+    void mUnSubscribe(int fromUserId, int toUserId);
     }
 
 
