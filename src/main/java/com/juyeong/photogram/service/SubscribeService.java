@@ -17,16 +17,13 @@ public class SubscribeService {
 
     @Transactional
     public void subscribe(int fromUserId, int toUserId) {
-        //save 할 때 subscribe 객체가 필요하다 -> 근데 int 값으론 오브젝트 안되자너 .. 이럴 땐 네이티브 쿼리
-
+        subscribeRepository.mSubscribe(fromUserId, toUserId);
 
     }
 
-
     @Transactional
     public void unSubscribe(int fromUserId, int toUserId) {
-
-
+        subscribeRepository.mUnSubscribe(fromUserId, toUserId);
     }
 
 

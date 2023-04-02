@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface SubscribeRepository extends JpaRepository<Subscribe, Integer> {
 
     // 네이티브쿼리 쓰면 훨씬 쉬워지니까 그렇게 하자
+    // m = made by myself
 
     @Modifying
     @Query(value = "INSERT INTO subscribe(fromUserId, toUserId, createDate) VALUES(:fromUserId, :toUserId, now())", nativeQuery = true)
