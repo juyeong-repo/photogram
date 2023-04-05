@@ -1,6 +1,7 @@
 package com.juyeong.photogram.service;
 
 import com.juyeong.photogram.domain.subscribe.SubscribeRepository;
+import com.juyeong.photogram.handler.ex.CustomApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,12 @@ public class SubscribeService {
 
     @Transactional
     public void subscribe(int fromUserId, int toUserId) {
-        subscribeRepository.mSubscribe(fromUserId, toUserId);
+        try {
+            subscribeRepository.mSubscribe(fromUserId, toUserId);
+        } catch (Exception e) {
+            throw new CustomApiException("이미 구독하였습니다.");
+        }
+
 
     }
 
