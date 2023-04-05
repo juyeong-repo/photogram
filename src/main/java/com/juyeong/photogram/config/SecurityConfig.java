@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
 
-        //인증안된 사람들은 로그인 페이지로 보내
+        //인증안된 사람들은 로그인 페이지로 보내 (antMatchers에 있는 경로는 접근 못함)
         http.authorizeRequests()
                 .antMatchers("/","/users/**", "/image/**", "/subscribe/**", "/comment/**",  "/api/**").authenticated()
                 .anyRequest().permitAll()
