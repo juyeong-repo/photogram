@@ -1,5 +1,6 @@
 package com.juyeong.photogram.handler;
 
+import com.juyeong.photogram.handler.ex.CustomApiException;
 import com.juyeong.photogram.handler.ex.CustomValidationApiException;
 import com.juyeong.photogram.handler.ex.CustomValidationException;
 import com.juyeong.photogram.util.Script;
@@ -34,5 +35,13 @@ public class ControllerExceptionHandler {
         System.out.println("================================ 실행확인");
         return new ResponseEntity<>(new CMRespDto<>(-1, e.getMessage(), e.getErrMap()), HttpStatus.BAD_REQUEST) ;
     }
+
+
+    @ExceptionHandler(CustomApiException.class)
+    public ResponseEntity<CMRespDto<?>> apiException(CustomValidationApiException e) {
+        System.out.println("================================ 실행확인");
+        return new ResponseEntity<>(new CMRespDto<>(-1, e.getMessage(), null) , HttpStatus.BAD_REQUEST) ;
+    }
+
 
 }
