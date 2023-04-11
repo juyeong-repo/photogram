@@ -3,6 +3,7 @@ package com.juyeong.photogram.service;
 
 import com.juyeong.photogram.domain.user.User;
 import com.juyeong.photogram.domain.user.UserRepositoty;
+import com.juyeong.photogram.handler.ex.CustomException;
 import com.juyeong.photogram.handler.ex.CustomValidationApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,16 @@ public class UserService {
     private final UserRepositoty userRepositoty;
     @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
+
+//유저 서비스에서 회원피드에 보여줄 내용이 있어야함
+    public User memberProfile (int userId) {
+        User userEntity = userRepositoty.findById(userId).orElseThrow(()->{
+                throw new CustomException("유효하지 않은 회원정보 : 해당 프로필 페이지는 없는 페이지입니다.");
+                });
+        return userEntity;
+    }
 
 
     @Transactional
@@ -47,3 +58,4 @@ public class UserService {
         return userEntity;
     }
 }
+

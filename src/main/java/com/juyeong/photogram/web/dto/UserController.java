@@ -2,18 +2,27 @@ package com.juyeong.photogram.web.dto;
 
 
 import com.juyeong.photogram.config.auth.PrincipalDetails;
+import com.juyeong.photogram.domain.user.User;
+import com.juyeong.photogram.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
+    private final UserService userService;
+
     @GetMapping("/user/{id}")
-    public String profile(@PathVariable int id) {
+    public String profile(@PathVariable int id, Model model) {
+        User userEntity = userService.memberProfile(id);
+        model.addAttribute("user",userEntity);
         return "user/profile";
     }
 
