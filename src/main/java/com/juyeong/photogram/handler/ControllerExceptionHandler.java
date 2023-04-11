@@ -1,6 +1,7 @@
 package com.juyeong.photogram.handler;
 
 import com.juyeong.photogram.handler.ex.CustomApiException;
+import com.juyeong.photogram.handler.ex.CustomException;
 import com.juyeong.photogram.handler.ex.CustomValidationApiException;
 import com.juyeong.photogram.handler.ex.CustomValidationException;
 import com.juyeong.photogram.util.Script;
@@ -26,9 +27,25 @@ public class ControllerExceptionHandler {
        *
        * 자바스크립트 리턴, 오브젝트 리턴
        * */
-    return Script.back(e.getErrMap().toString());
+        if(e.getErrMap() == null) {
+            return Script.back(e.getMessage());
+        }else {
+            return Script.back(e.getErrMap().toString());
+        }
+
+
         //return new CMRespDto<Map<String, String>>(-1, e.getMessage(), e.getErrMap());
     }
+
+
+    @ExceptionHandler(CustomException.class)
+    public String exception(CustomException e) {
+        return Script.back(e.getMessage());
+    }
+
+
+
+
 
     @ExceptionHandler(CustomValidationApiException.class)
     public ResponseEntity<CMRespDto<?>> validationApiException(CustomValidationApiException e) {
